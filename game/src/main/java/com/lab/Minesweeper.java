@@ -1,6 +1,7 @@
 package com.lab;
 
 import java.util.Scanner;
+import java.util.Random;
 import java.io.InputStream;
 
 public class Minesweeper {
@@ -45,6 +46,16 @@ public class Minesweeper {
         cells[x][y] = IS_MINE;
     }
 
+    public void handleMineHit() {
+        Random random = new Random();
+        boolean willExplode = random.nextBoolean();  
+
+        if (willExplode) {
+            System.out.println("Bomb has exploded! Game Over!");
+        } else {
+            System.out.println("Bomb hasn't exploded Continue Playing!");
+        }
+    }
     void initFromFile(String mineFieldFile) {
         InputStream is = getClass().getClassLoader().getResourceAsStream(mineFieldFile);
         Scanner scanner = new Scanner(is);
@@ -63,9 +74,5 @@ public class Minesweeper {
                 }
             }
         }
-
-        // Task 2: Using `java.util.Scanner` to load mine field from the input stream
-        // named, `is`
-
     }
 }

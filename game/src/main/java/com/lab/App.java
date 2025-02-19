@@ -1,8 +1,6 @@
 package com.lab;
 
-/**
- * Hello world!
- */
+
 public class App {
     static Minesweeper initMineField() {
         Minesweeper game = new Minesweeper(9, 9);
